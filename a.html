@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<style type="text/css">
+		#canvas2 {
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			z-index: 0;
+		}
+
+		#canvas1 {
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			z-index: 1;
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id="canvas1" width="800" height="600"></canvas>
+	<canvas id="canvas2" width="800" height="600"></canvas>
+	<script src="js/ane.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var can1 = document.getElementById("canvas1");
+
+			var ctx1 = can1.getContext('2d');
+
+			var can2 = document.getElementById("canvas2");
+
+			var ctx2 = can2.getContext('2d');
+
+			var bigpic = new Image();
+
+			bigpic.src = "src/20090927120258723.jpg";
+			bigpic.onload = function () {
+				ctx2.drawImage(bigpic, 0, 0, 800, 600);
+			}
+			//画海葵
+			// init();
+			// function init() {
+			// 	var x = [];
+			// 	var len = [];
+			// 	var num = 50;
+			// 	ctx1.save();
+			// 	ctx1.lineWidth = 20;
+			// 	ctx1.lineCap = "round";
+			// 	ctx1.globalAlpha = 0.6;
+			// 	for (var i = 1; i < 50; i++) {
+			// 		x[i] = i * 16 + Math.random() * 10;
+			// 		len[i] = 400 + Math.random() * 50;
+			// 	}
+			// 	for (var i = 1; i < num; i++) {
+			// 		ctx1.beginPath();
+			// 		ctx1.moveTo(x[i], 800);
+			// 		ctx1.lineTo(x[i], 800 - len[i]);
+			// 		ctx1.strokeStyle = "lightgreen";
+			// 		ctx1.stroke();
+			// 	}
+			// 	ctx1.restore();
+			// }
+			var ane = new aneObj();
+			ane.init();
+		}
+	</script>
+</body>
+
+</html>
